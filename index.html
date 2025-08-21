@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Harmony Hub Cuban Café — Order Online</title>
 <meta name="description" content="Order Cuban sandwiches, batidos, coffee & more in Harmony / St. Cloud, FL."/>
-<meta name="theme-color" content="#3c1f2e">
+<meta name="theme-color" content="#1f3f2e">
 
 <style>
   /* ===== THEME (ajusta aquí) ===== */
   :root{
-    --bg:#3c1f2e;         /* vino profundo (fondo) */
-    --bg-soft:#52263d;    /* vino suave (barra/hero) */
+    --bg:#153b27;         /* verde fondo */
+    --bg-soft:#1d4a33;    /* verde barra/hero */
     --card:#fbf3e6;       /* crema tarjetas */
     --accent:#d6b26e;     /* dorado líneas/acento */
     --ink:#101418;        /* texto principal */
@@ -28,14 +28,14 @@
   .container{max-width:1200px;margin:0 auto;padding:16px 22px}
 
   /* ===== HEADER / HERO ===== */
-  header{position:sticky;top:0;z-index:40;background:#2a1520dd;backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #1f0f17}
+  header{position:sticky;top:0;z-index:40;background:#0f2c1fdd;backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #0c2318}
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff}
   .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px}
   .icons{display:flex;align-items:center;gap:10px}
   .circle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:var(--accent);color:#263238;font-weight:900}
-  .hamb{width:38px;height:38px;border-radius:10px;border:1px solid #432536;background:transparent;color:#fff}
+  .hamb{width:38px;height:38px;border-radius:10px;border:1px solid #2a3f33;background:transparent;color:#fff}
   .hero{padding:18px 0;background:var(--bg-soft)}
-  .heroImg{border-radius:18px;overflow:hidden;border:2px solid #61324a}
+  .heroImg{border-radius:18px;overflow:hidden;border:2px solid #2e4d39}
 
   /* ===== NAV CATS + SEARCH ===== */
   .navwrap{border-top:3px solid var(--accent);border-bottom:3px solid var(--accent);margin-top:14px}
@@ -76,9 +76,159 @@
 </style>
 </head>
 <body>
-  <!-- resto del HTML idéntico (no modificado) -->
+
+<!-- HEADER -->
+<header>
+  <div class="container topbar">
+    <div class="brand">Harmony Hub</div>
+    <div class="row">
+      <div class="badge">Pickup and delivery available!</div>
+      <div class="circle">0</div>
+      <button class="hamb">≡</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="heroImg">
+      <!-- Puedes cambiar por un banner propio -->
+      <img src="images/cubano.jpg" alt="Cuban sandwiches"/>
+    </div>
+
+    <div class="row" style="color:#fff;justify-content:space-between;margin-top:14px">
+      <div>
+        <h1 style="margin:6px 0 2px;font-size:34px;font-weight:900;color:#ecd8ab">Harmony Hub Cuban Café</h1>
+        <div class="muted">Harmony Town Center, St. Cloud, FL</div>
+      </div>
+      <div class="row">
+        <div class="badge">Pickup</div>
+        <div class="badge">Today, 20–25 min</div>
+      </div>
+    </div>
+
+    <!-- NAV CATS + SEARCH -->
+    <div class="navwrap">
+      <div class="container" style="padding:0">
+        <div class="navrow">
+          <nav class="tabs" id="tabs">
+            <a href="#papicar" class="active">Pa'Picar</a>
+            <a href="#sanguiches">Sanguiches</a>
+            <a href="#batidos">Batidos</a>
+            <a href="#cafe">Cafè</a>
+            <a href="#softdrinks">Soft Drinks</a>
+            <a href="#tienda">Tienda</a>
+          </nav>
+          <div class="search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#999" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="q" placeholder="Search"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container" id="menuRoot">
+
+  <!-- TEMPLATE (autogenerado por JS) -->
+
+</main>
+
+<!-- CART (demo visual) -->
+<div class="cart">
+  <div class="cartbar container">
+    <button class="checkout">Checkout →</button>
+  </div>
+</div>
+
+<script>
+/* ===== DATA ===== */
+const DATA = [
+  // Pa'Picar
+  {sectionId:'papicar', section:'Pa\'Picar', items:[
+    {name:'Croquettas', price:3.59, img:'images/croqueta-preparada.jpg', desc:''},
+    {name:'Boniato Fries', price:4.75, img:'images/banana.jpg', desc:''},
+  ]},
+  // Sanguiches
+  {sectionId:'sanguiches', section:'Sanguiches', items:[
+    {name:'El Cubano', price:13.99, img:'images/cubano.jpg', desc:''},
+    {name:'Croqueta Preparada', price:14.39, img:'images/croqueta-preparada.jpg', desc:''},
+    {name:'Media Noche', price:12.29, img:'images/cubano.jpg', desc:''},
+    {name:'Pan con Lechón', price:12.79, img:'images/lechon.jpg', desc:''},
+    {name:'Pan con Bistec', price:12.99, img:'images/bistec.jpg', desc:''},
+  ]},
+  // Batidos
+  {sectionId:'batidos', section:'Batidos', items:[
+    {name:'Mamey', price:6.89, img:'images/mamey.jpg', desc:''},
+    {name:'Timba', price:8.29, img:'images/mango.jpg', desc:''},
+    {name:'Banana', price:6.89, img:'images/banana.jpg', desc:''},
+  ]},
+  // Café
+  {sectionId:'cafe', section:'Cafè', items:[
+    {name:'Cortadito', price:3.29, img:'images/cortadito.jpg', desc:''},
+    {name:'Cafè con Leche', price:4.25, img:'images/cafe-con-leche.jpg', desc:''},
+    {name:'Colada', price:3.29, img:'images/colada.jpg', desc:''},
+  ]},
+  // Soft Drinks
+  {sectionId:'softdrinks', section:'Soft Drinks', items:[
+    {name:'Pepsi (12oz)', price:2.75, img:'images/pepsi.jpg', desc:''},
+    {name:'Jupiña (12oz)', price:2.75, img:'images/jupina.jpg', desc:''},
+  ]},
+  // Tienda
+  {sectionId:'tienda', section:'Tienda', items:[
+    {name:'Salsa Havana Green', price:7.99, img:'images/mango.jpg', desc:'Bottle 5oz'},
+  ]},
+];
+
+/* ===== RENDER ===== */
+const root = document.getElementById('menuRoot');
+function render(filter=''){
+  root.innerHTML = DATA.map((sec, idx)=>{
+    const items = sec.items.filter(i => (i.name+i.desc).toLowerCase().includes(filter));
+    if(!items.length) return '';
+    return `
+      <section id="${sec.sectionId}" class="section">
+        <h2 class="sectionTitle">${sec.section}</h2>
+        <div class="grid">
+          ${items.map((i, n) => {
+            const right = (n % 2) === 1 ? 'right' : '';
+            return `
+              <article class="card ${right}">
+                <div class="info">
+                  <h3 class="title">${i.name}</h3>
+                  <p class="desc">${i.desc || ''}</p>
+                  <div class="price">$${i.price.toFixed(2)}</div>
+                </div>
+                <div class="pic"><img src="${i.img}" alt="${i.name}"/></div>
+              </article>
+            `;
+          }).join('')}
+        </div>
+      </section>
+    `;
+  }).join('');
+}
+render();
+
+/* ===== INTERACT ===== */
+const tabs = document.getElementById('tabs').querySelectorAll('a');
+tabs.forEach(a=>{
+  a.addEventListener('click', () => {
+    tabs.forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+
+document.getElementById('q').addEventListener('input', e=>{
+  render(e.target.value.trim().toLowerCase());
+});
+</script>
 </body>
 </html>
+
 
 
 
