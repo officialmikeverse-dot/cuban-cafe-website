@@ -5,81 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Harmony Hub Cuban Café — Order Online</title>
 <meta name="description" content="Order Cuban sandwiches, batidos, coffee & more in Harmony / St. Cloud, FL."/>
-<meta name="theme-color" content="#0b5d3b">
+<meta name="theme-color" content="#1f3f2e">
 
 <style>
-  /* ======= THEME (cambia estos colores si quieres) ======= */
+  /* ===== THEME (ajusta aquí) ===== */
   :root{
-    --primary:#0b5d3b;      /* verde cubano */
-    --primary-ink:#0b5d3b;
-    --accent:#f59e0b;       /* amber */
-    --bg:#fffdf7;           /* crema */
-    --ink:#111827;
-    --muted:#6b7280;
-    --border:#e5e7eb;
-    --danger:#b91c1c;
+    --bg:#153b27;         /* verde fondo */
+    --bg-soft:#1d4a33;    /* verde barra/hero */
+    --card:#fbf3e6;       /* crema tarjetas */
+    --accent:#d6b26e;     /* dorado líneas/acento */
+    --ink:#101418;        /* texto principal */
+    --muted:#7b8794;      /* texto suave */
+    --border:#e9dec9;     /* borde crema suave */
+    --pill:#f2ead9;       /* chips/badges */
   }
 
-  /* ======= BASE ======= */
-  *{box-sizing:border-box} html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  /* ===== BASE ===== */
+  *{box-sizing:border-box}
+  html,body{margin:0;font-family:system-ui,-apple-system,Inter,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
-  .container{max-width:1200px;margin:0 auto;padding:14px 18px}
+  .container{max-width:1200px;margin:0 auto;padding:16px 22px}
 
-  /* ======= HEADER ======= */
-  header{position:sticky;top:0;z-index:30;background:#ffffffd0;backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid var(--border)}
-  .topbar{display:flex;align-items:center;gap:12px;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:900}
-  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:999px;padding:8px 12px;background:#fff}
-  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;background:var(--primary);color:#fff;padding:10px 14px;font-weight:700;border:none;cursor:pointer}
-  .btn.secondary{background:var(--accent);color:#111}
-  .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#fff7ed;color:var(--accent);border:1px solid #fde68a;font-weight:800;font-size:12px}
+  /* ===== HEADER / HERO ===== */
+  header{position:sticky;top:0;z-index:40;background:#0f2c1fdd;backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #0c2318}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px}
+  .icons{display:flex;align-items:center;gap:10px}
+  .circle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:var(--accent);color:#263238;font-weight:900}
+  .hamb{width:38px;height:38px;border-radius:10px;border:1px solid #2a3f33;background:transparent;color:#fff}
+  .hero{padding:18px 0;background:var(--bg-soft)}
+  .heroImg{border-radius:18px;overflow:hidden;border:2px solid #2e4d39}
 
-  /* ======= LAYOUT COLUMNA ======= */
-  .layout{display:grid;grid-template-columns:220px 1fr 320px;gap:18px;margin-top:14px}
-  @media(max-width:1100px){ .layout{grid-template-columns:200px 1fr} .cart{display:none} }
-  @media(max-width:720px){  .layout{grid-template-columns:1fr} .cats{display:none} }
+  /* ===== NAV CATS + SEARCH ===== */
+  .navwrap{border-top:3px solid var(--accent);border-bottom:3px solid var(--accent);margin-top:14px}
+  .navrow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px}
+  .tabs{display:flex;gap:28px;flex-wrap:wrap;color:#ecd8ab}
+  .tabs a{display:inline-block;padding:18px 4px;color:#ecd8ab;font-weight:700;opacity:.9}
+  .tabs a.active,.tabs a:hover{color:#fff}
+  .search{display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:10px 16px;min-width:260px;border:2px solid var(--accent)}
+  .search input{border:none;outline:none;width:220px;font-size:15px}
 
-  /* ======= CATEGORÍAS ======= */
-  .cats{position:sticky;top:72px;align-self:start;border:1px solid var(--border);background:#fff;border-radius:14px;padding:10px}
-  .cats h4{margin:6px 10px 10px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
-  .cats a{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:10px;color:var(--ink)}
-  .cats a.active,.cats a:hover{background:#f6fef8;border:1px solid #c7f0d8}
+  /* ===== SECTIONS ===== */
+  main{padding:22px 0}
+  .section{scroll-margin-top:120px}
+  .sectionTitle{color:#ecd8ab;font-weight:900;font-size:28px;margin:18px 0}
 
-  /* ======= MENU CENTRAL ======= */
-  .tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
-  .seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden}
-  .seg button{padding:8px 12px;border:none;background:#fff;cursor:pointer}
-  .seg button.active{background:var(--primary);color:#fff}
-  .search{flex:1;min-width:200px;display:flex;align-items:center;border:1px solid var(--border);background:#fff;border-radius:10px;padding:8px 10px}
-  .search input{border:none;outline:none;flex:1}
-  .category{scroll-margin-top:90px}
-  .category h2{font-size:20px;margin:18px 0 8px;font-weight:900}
-  .grid{display:grid;gap:12px}
-  @media(min-width:720px){ .grid{grid-template-columns:repeat(2,1fr)} }
-  .item{display:grid;grid-template-columns:96px 1fr;gap:12px;border:1px solid var(--border);background:#fff;border-radius:14px;padding:10px}
-  .item h3{margin:0 0 4px;font-size:16px}
-  .item .muted{color:var(--muted);font-size:13px}
-  .item .price{font-weight:800}
-  .addrow{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
-  .qty{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px;overflow:hidden}
-  .qty button{border:none;background:#fff;width:34px;height:34px;font-weight:900;cursor:pointer}
-  .qty span{min-width:38px;text-align:center}
+  /* ===== GRID CARDS ===== */
+  .grid{display:grid;gap:18px}
+  @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+  .card{display:grid;grid-template-columns:1fr 260px;gap:0;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+  .card.right .pic{grid-column:2}
+  .pic{background:#eee;min-height:170px}
+  .pic img{width:100%;height:100%;object-fit:cover}
+  .info{padding:16px}
+  .title{font-weight:900;font-size:22px;margin:0 0 8px}
+  .desc{color:#6a6154;margin:0 0 14px}
+  .price{font-weight:800}
+  .soldout{display:inline-block;margin-left:10px;background:#fbe2e3;color:#b42318;border-radius:8px;padding:4px 8px;font-weight:800;font-size:12px}
 
-  /* ======= CARRITO ======= */
-  .cart{position:sticky;top:72px;align-self:start;border:1px solid var(--border);background:#fff;border-radius:14px;padding:14px}
-  .cart h3{margin:4px 0 10px}
-  .cart .row{display:flex;justify-content:space-between;align-items:center;margin:8px 0}
-  .cart .line{font-size:14px}
-  .cart .line strong{display:block}
-  .cart .line small{color:var(--muted)}
-  .cart .tot{border-top:1px dashed var(--border);margin-top:8px;padding-top:8px}
-  .cart .big{font-size:18px;font-weight:900}
-  .remove{background:none;border:none;color:var(--danger);cursor:pointer}
+  /* ===== CART (demo) ===== */
+  .cart{position:sticky;bottom:16px;left:0;right:0;margin:0 auto;max-width:1200px}
+  .cartbar{display:flex;justify-content:flex-end;padding:8px}
+  .checkout{background:var(--accent);color:#1b2a22;border:none;border-radius:999px;padding:12px 18px;font-weight:900}
+  .badge{display:inline-block;background:var(--pill);border:1px solid var(--border);border-radius:999px;padding:4px 10px;font-weight:800}
 
-  /* ======= FOOTER ======= */
-  footer{border-top:1px solid var(--border);background:#fff;margin-top:28px}
-  .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:18px}
+  /* ===== UTIL ===== */
+  .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .muted{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -87,227 +80,154 @@
 <!-- HEADER -->
 <header>
   <div class="container topbar">
-    <div class="brand">☕ <span>Harmony Hub Cuban Café</span></div>
-    <div class="pill">Harmony Town Center • St. Cloud, FL 34773</div>
-    <div class="pill">Today: 7:00 AM – 7:00 PM</div>
-    <a class="btn secondary" href="#cart">Checkout</a>
+    <div class="brand">Harmony Hub</div>
+    <div class="row">
+      <div class="badge">Pickup and delivery available!</div>
+      <div class="circle">0</div>
+      <button class="hamb">≡</button>
+    </div>
   </div>
 </header>
 
-<div class="container">
-  <!-- TOOLS -->
-  <div class="tools">
-    <div class="seg" id="mode">
-      <button class="active" data-mode="pickup">Pickup</button>
-      <button data-mode="delivery">Delivery</button>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="heroImg">
+      <!-- Puedes cambiar por un banner propio -->
+      <img src="images/cubano.jpg" alt="Cuban sandwiches"/>
     </div>
-    <div class="search">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/></svg>
-      <input id="q" placeholder="Search menu…" />
-    </div>
-    <span class="badge">Grand Opening: $1 OFF Batidos (3–6 PM)</span>
-  </div>
 
-  <!-- LAYOUT -->
-  <div class="layout">
-    <!-- CATEGORÍAS -->
-    <aside class="cats" id="cats">
-      <h4>Categories</h4>
-      <nav id="catLinks"></nav>
-    </aside>
-
-    <!-- MENÚ -->
-    <main id="menu"></main>
-
-    <!-- CARRITO -->
-    <aside class="cart" id="cart">
-      <h3>Your Order</h3>
-      <div id="cartItems"></div>
-
-      <div class="tot">
-        <div class="row"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
-        <div class="row"><span>Tax (7%)</span><strong id="tax">$0.00</strong></div>
-        <div class="row"><span>Service</span><strong id="service">$0.00</strong></div>
-        <div class="row big"><span>Total</span><strong id="total">$0.00</strong></div>
+    <div class="row" style="color:#fff;justify-content:space-between;margin-top:14px">
+      <div>
+        <h1 style="margin:6px 0 2px;font-size:34px;font-weight:900;color:#ecd8ab">Harmony Hub Cuban Café</h1>
+        <div class="muted">Harmony Town Center, St. Cloud, FL</div>
       </div>
-      <button class="btn" style="width:100%;margin-top:10px">Checkout →</button>
-      <p class="muted" style="margin-top:8px">*Demo only. No payments processed.</p>
-    </aside>
+      <div class="row">
+        <div class="badge">Pickup</div>
+        <div class="badge">Today, 20–25 min</div>
+      </div>
+    </div>
+
+    <!-- NAV CATS + SEARCH -->
+    <div class="navwrap">
+      <div class="container" style="padding:0">
+        <div class="navrow">
+          <nav class="tabs" id="tabs">
+            <a href="#papicar" class="active">Pa'Picar</a>
+            <a href="#sanguiches">Sanguiches</a>
+            <a href="#batidos">Batidos</a>
+            <a href="#cafe">Cafè</a>
+            <a href="#softdrinks">Soft Drinks</a>
+            <a href="#tienda">Tienda</a>
+          </nav>
+          <div class="search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#999" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="q" placeholder="Search"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container" id="menuRoot">
+
+  <!-- TEMPLATE (autogenerado por JS) -->
+
+</main>
+
+<!-- CART (demo visual) -->
+<div class="cart">
+  <div class="cartbar container">
+    <button class="checkout">Checkout →</button>
   </div>
 </div>
 
-<footer>
-  <div class="container foot">
-    <strong>Harmony Hub Cuban Café</strong>
-    <span class="muted">© <script>document.write(new Date().getFullYear())</script> All rights reserved.</span>
-  </div>
-</footer>
-
-<!-- ======= DATA + JS ======= -->
 <script>
-  // Menu data (puedes editar precios/nombres)
-  const DATA = [
-    {
-      id:'sandwiches', name:'Sandwiches',
-      items:[
-        {id:'cubano', name:'Cuban Classic', desc:'Roast pork, ham, Swiss, pickles, mustard on Cuban bread.', price:10.5, img:'https://images.unsplash.com/photo-1604908554027-25334a5cc8d0?q=80&w=1200&auto=format&fit=crop'},
-        {id:'lechon', name:'Pan con Lechón', desc:'Slow-roasted pork, mojo, onions.', price:11.25, img:'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop'},
-        {id:'croqueta', name:'Croqueta Preparada', desc:'Ham + croquetas, Swiss, pickles.', price:9.75, img:'https://images.unsplash.com/photo-1544025162-23883a0e0b1b?q=80&w=1200&auto=format&fit=crop'},
-        {id:'bistec', name:'Pan con Bistec', desc:'Thin steak, shoestring fries, lettuce, tomato.', price:11.5, img:'https://images.unsplash.com/photo-1606756790138-261d8f2dd0d2?q=80&w=1200&auto=format&fit=crop'},
-      ]
-    },
-    {
-      id:'batidos', name:'Batidos',
-      items:[
-        {id:'mamey', name:'Batido de Mamey', price:6.5, desc:'Creamy tropical shake', img:'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop'},
-        {id:'mango', name:'Batido de Mango', price:6.5, desc:'Ripe mango goodness', img:'https://images.unsplash.com/photo-1613478223719-5f6995b5ba55?q=80&w=1200&auto=format&fit=crop'},
-        {id:'guava', name:'Batido de Guayaba', price:6.5, desc:'Sweet guava shake', img:'https://images.unsplash.com/photo-1553531768-7bee3f4f2347?q=80&w=1200&auto=format&fit=crop'},
-      ]
-    },
-    {
-      id:'coffee', name:'Coffee',
-      items:[
-        {id:'cafecito', name:'Café Cubano (Espresso)', price:2.25, desc:'Sweet, strong shot', img:'https://images.unsplash.com/photo-1517957754645-708398cd0adb?q=80&w=1200&auto=format&fit=crop'},
-        {id:'cortadito', name:'Cortadito', price:2.95, desc:'Espresso + milk', img:'https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=1200&auto=format&fit=crop'},
-        {id:'conleche', name:'Café con Leche (12 oz)', price:3.75, desc:'Comfort cup', img:'https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1200&auto=format&fit=crop'},
-      ]
-    },
-    {
-      id:'desserts', name:'Sweets',
-      items:[
-        {id:'pastelito', name:'Pastelito (Guava/Cheese/Beef)', price:2.5, desc:'Flaky pastry favorites', img:'https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=1200&auto=format&fit=crop'},
-        {id:'tresleches', name:'Tres Leches (individual)', price:4.25, desc:'Rich & moist', img:'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=1200&auto=format&fit=crop'},
-        {id:'flan', name:'Flan Casero', price:4.75, desc:'Classic caramel custard', img:'https://images.unsplash.com/photo-1589308078056-f04d12d902d5?q=80&w=1200&auto=format&fit=crop'},
-      ]
-    },
-    {
-      id:'combos', name:'Value Combos',
-      items:[
-        {id:'combo-cubano', name:'Combo Cubano', price:14.5, desc:'Cuban Sandwich + Café con Leche', img:'https://images.unsplash.com/photo-1617191518499-6b21f6bda893?q=80&w=1200&auto=format&fit=crop'},
-        {id:'combo-batido', name:'Combo Batido', price:16.5, desc:'Lechón + Batido (Mamey/Mango)', img:'https://images.unsplash.com/photo-1548946526-f69e2424cf45?q=80&w=1200&auto=format&fit=crop'},
-        {id:'combo-familiar', name:'Combo Familiar', price:38, desc:'2 Sandwiches + 2 Batidos + 2 Pastelitos', img:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1200&auto=format&fit=crop'},
-      ]
-    },
-  ];
+/* ===== DATA ===== */
+const DATA = [
+  // Pa'Picar
+  {sectionId:'papicar', section:'Pa\'Picar', items:[
+    {name:'Croquettas', price:3.59, img:'images/croqueta-preparada.jpg', desc:''},
+    {name:'Boniato Fries', price:4.75, img:'images/banana.jpg', desc:''},
+  ]},
+  // Sanguiches
+  {sectionId:'sanguiches', section:'Sanguiches', items:[
+    {name:'El Cubano', price:13.99, img:'images/cubano.jpg', desc:''},
+    {name:'Croqueta Preparada', price:14.39, img:'images/croqueta-preparada.jpg', desc:''},
+    {name:'Media Noche', price:12.29, img:'images/cubano.jpg', desc:''},
+    {name:'Pan con Lechón', price:12.79, img:'images/lechon.jpg', desc:''},
+    {name:'Pan con Bistec', price:12.99, img:'images/bistec.jpg', desc:''},
+  ]},
+  // Batidos
+  {sectionId:'batidos', section:'Batidos', items:[
+    {name:'Mamey', price:6.89, img:'images/mamey.jpg', desc:''},
+    {name:'Timba', price:8.29, img:'images/mango.jpg', desc:''},
+    {name:'Banana', price:6.89, img:'images/banana.jpg', desc:''},
+  ]},
+  // Café
+  {sectionId:'cafe', section:'Cafè', items:[
+    {name:'Cortadito', price:3.29, img:'images/cortadito.jpg', desc:''},
+    {name:'Cafè con Leche', price:4.25, img:'images/cafe-con-leche.jpg', desc:''},
+    {name:'Colada', price:3.29, img:'images/colada.jpg', desc:''},
+  ]},
+  // Soft Drinks
+  {sectionId:'softdrinks', section:'Soft Drinks', items:[
+    {name:'Pepsi (12oz)', price:2.75, img:'images/pepsi.jpg', desc:''},
+    {name:'Jupiña (12oz)', price:2.75, img:'images/jupina.jpg', desc:''},
+  ]},
+  // Tienda
+  {sectionId:'tienda', section:'Tienda', items:[
+    {name:'Salsa Havana Green', price:7.99, img:'images/mango.jpg', desc:'Bottle 5oz'},
+  ]},
+];
 
-  // Render categories list
-  const catLinks = document.getElementById('catLinks');
-  catLinks.innerHTML = DATA.map(c => `<a href="#${c.id}" data-id="${c.id}">${c.name}<span>›</span></a>`).join('');
-
-  // Render menu
-  const menu = document.getElementById('menu');
-  function renderMenu(filter=''){
-    menu.innerHTML = DATA.map(cat => {
-      const items = cat.items.filter(i => i.name.toLowerCase().includes(filter) || (i.desc||'').toLowerCase().includes(filter));
-      if(!items.length) return '';
-      return `
-        <section class="category" id="${cat.id}">
-          <h2>${cat.name}</h2>
-          <div class="grid">
-            ${items.map(i => `
-              <article class="item" data-id="${i.id}" data-name="${i.name}" data-price="${i.price}">
-                <img src="${i.img}" alt="${i.name}"/>
-                <div>
-                  <h3>${i.name}</h3>
-                  <div class="muted">${i.desc || ''}</div>
-                  <div class="addrow">
-                    <span class="price">$${i.price.toFixed(2)}</span>
-                    <div class="qty">
-                      <button class="minus">−</button>
-                      <span class="count">0</span>
-                      <button class="plus">+</button>
-                    </div>
-                  </div>
+/* ===== RENDER ===== */
+const root = document.getElementById('menuRoot');
+function render(filter=''){
+  root.innerHTML = DATA.map((sec, idx)=>{
+    const items = sec.items.filter(i => (i.name+i.desc).toLowerCase().includes(filter));
+    if(!items.length) return '';
+    return `
+      <section id="${sec.sectionId}" class="section">
+        <h2 class="sectionTitle">${sec.section}</h2>
+        <div class="grid">
+          ${items.map((i, n) => {
+            const right = (n % 2) === 1 ? 'right' : '';
+            return `
+              <article class="card ${right}">
+                <div class="info">
+                  <h3 class="title">${i.name}</h3>
+                  <p class="desc">${i.desc || ''}</p>
+                  <div class="price">$${i.price.toFixed(2)}</div>
                 </div>
+                <div class="pic"><img src="${i.img}" alt="${i.name}"/></div>
               </article>
-            `).join('')}
-          </div>
-        </section>
-      `;
-    }).join('');
-  }
-  renderMenu();
-
-  // Sticky category active state
-  const links = [...document.querySelectorAll('#catLinks a')];
-  const sections = [];
-  function refreshSections(){ DATA.forEach(c => sections.push(document.getElementById(c.id))); }
-  refreshSections();
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY + 100;
-    let active = sections[0]?.id;
-    sections.forEach(s => { if (s.offsetTop <= y) active = s.id; });
-    links.forEach(a => a.classList.toggle('active', a.dataset.id === active));
-  });
-
-  // Search
-  document.getElementById('q').addEventListener('input', e => {
-    renderMenu(e.target.value.trim().toLowerCase());
-    attachItemHandlers();
-  });
-
-  // Mode (pickup/delivery) – solo cambia fee
-  const modeSeg = document.getElementById('mode');
-  let mode = 'pickup';
-  modeSeg.addEventListener('click', e=>{
-    if(e.target.tagName!=='BUTTON') return;
-    mode = e.target.dataset.mode;
-    modeSeg.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.mode===mode));
-    updateCart();
-  });
-
-  // Cart state
-  const cart = {};
-  function attachItemHandlers(){
-    document.querySelectorAll('.item').forEach(card=>{
-      const id = card.dataset.id;
-      const name = card.dataset.name;
-      const price = parseFloat(card.dataset.price);
-      const plus = card.querySelector('.plus');
-      const minus = card.querySelector('.minus');
-      const count = card.querySelector('.count');
-      function set(n){ count.textContent = n; }
-      plus.onclick = ()=>{ cart[id] = (cart[id]||{id,name,price,qty:0}); cart[id].qty++; set(cart[id].qty); updateCart(); };
-      minus.onclick = ()=>{ if(!cart[id]) return; cart[id].qty=Math.max(0,cart[id].qty-1); set(cart[id].qty); if(cart[id].qty===0) delete cart[id]; updateCart(); };
-    });
-  }
-  attachItemHandlers();
-
-  // Render cart
-  function updateCart(){
-    const list = document.getElementById('cartItems');
-    const items = Object.values(cart);
-    if(!items.length){ list.innerHTML = `<p class="muted">Your cart is empty.</p>`; }
-    else{
-      list.innerHTML = items.map(i => `
-        <div class="row">
-          <div class="line"><strong>${i.qty}× ${i.name}</strong><small>$${i.price.toFixed(2)} each</small></div>
-          <div>
-            <strong>$${(i.price*i.qty).toFixed(2)}</strong>
-            <button class="remove" data-id="${i.id}">Remove</button>
-          </div>
+            `;
+          }).join('')}
         </div>
-      `).join('');
-      list.querySelectorAll('.remove').forEach(btn=>{
-        btn.onclick=()=>{ delete cart[btn.dataset.id]; // also zero out qty in menu, if visible
-          const card = document.querySelector(`.item[data-id="${btn.dataset.id}"] .count`); if(card) card.textContent='0';
-          updateCart();
-        }
-      });
-    }
-    // totals
-    const subtotal = items.reduce((s,i)=>s+i.price*i.qty,0);
-    const tax = subtotal*0.07;
-    const service = (mode==='delivery' && subtotal>0)? 3.00 : 0.00;
-    const total = subtotal+tax+service;
-    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
-    document.getElementById('service').textContent = `$${service.toFixed(2)}`;
-    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-  }
-  updateCart();
+      </section>
+    `;
+  }).join('');
+}
+render();
+
+/* ===== INTERACT ===== */
+const tabs = document.getElementById('tabs').querySelectorAll('a');
+tabs.forEach(a=>{
+  a.addEventListener('click', () => {
+    tabs.forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+
+document.getElementById('q').addEventListener('input', e=>{
+  render(e.target.value.trim().toLowerCase());
+});
 </script>
 </body>
 </html>
+
 
 
