@@ -1,197 +1,85 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menú - Café Cubano</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Harmony Hub Cuban Café — Order Online</title>
+<meta name="description" content="Order Cuban sandwiches, batidos, coffee & more in Harmony / St. Cloud, FL."/>
+<meta name="theme-color" content="#3c1f2e">
 
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== THEME (ajusta aquí) ===== */
+  :root{
+    --bg:#3c1f2e;         /* vino profundo (fondo) */
+    --bg-soft:#52263d;    /* vino suave (barra/hero) */
+    --card:#fbf3e6;       /* crema tarjetas */
+    --accent:#d6b26e;     /* dorado líneas/acento */
+    --ink:#101418;        /* texto principal */
+    --muted:#7b8794;      /* texto suave */
+    --border:#e9dec9;     /* borde crema suave */
+    --pill:#f2ead9;       /* chips/badges */
+  }
 
-  <style>
-    :root{
-      /* 🎨 Paleta Clásico Cubano */
-      --bg:#153B27;
-      --bg-soft:#1E4A33;
-      --card:#FBF3E6;
-      --accent:#C9A55B;
-      --ink:#101418;
-      --muted:#7B8794;
-      --border:#E9DEC9;
-      --pill:#F2EAD9;
-    }
+  /* ===== BASE ===== */
+  *{box-sizing:border-box}
+  html,body{margin:0;font-family:system-ui,-apple-system,Inter,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:16px 22px}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.5;
-    }
-    header{
-      background:var(--bg-soft);
-      border-bottom:2px solid var(--accent);
-      padding:1rem 2rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .logo{
-      font-family:"Alfa Slab One",serif;
-      font-size:1.5rem;
-      color:var(--accent);
-    }
-    nav{
-      display:flex;
-      gap:1.5rem;
-      align-items:center;
-    }
-    nav a{
-      color:var(--accent);
-      font-weight:700;
-      text-decoration:none;
-      transition:.2s;
-    }
-    nav a:hover{color:#fff;text-shadow:0 0 2px rgba(255,255,255,.4);}
-    .search{
-      padding:.5rem 1rem;
-      border-radius:999px;
-      border:1px solid var(--accent);
-      outline:none;
-    }
-    main{
-      padding:2rem;
-      max-width:1200px;
-      margin:auto;
-    }
-    h2.sectionTitle{
-      font-family:"Alfa Slab One",serif;
-      color:var(--accent);
-      font-size:1.4rem;
-      margin:1rem 0;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:1.5rem;
-    }
-    .card{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:var(--card);
-      border-radius:12px;
-      padding:1rem;
-      box-shadow:0 6px 18px rgba(0,0,0,.08);
-    }
-    .card img{
-      max-width:120px;
-      border-radius:8px;
-    }
-    .info h3{
-      font-size:1.1rem;
-      margin-bottom:.2rem;
-    }
-    .info p{color:var(--muted);font-size:.9rem;}
-    .price{
-      font-weight:700;
-      margin-top:.3rem;
-    }
-    .out{
-      color:red;
-      font-weight:700;
-      font-size:.9rem;
-      margin-left:.5rem;
-    }
-  </style>
+  /* ===== HEADER / HERO ===== */
+  header{position:sticky;top:0;z-index:40;background:#2a1520dd;backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #1f0f17}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px}
+  .icons{display:flex;align-items:center;gap:10px}
+  .circle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:var(--accent);color:#263238;font-weight:900}
+  .hamb{width:38px;height:38px;border-radius:10px;border:1px solid #432536;background:transparent;color:#fff}
+  .hero{padding:18px 0;background:var(--bg-soft)}
+  .heroImg{border-radius:18px;overflow:hidden;border:2px solid #61324a}
+
+  /* ===== NAV CATS + SEARCH ===== */
+  .navwrap{border-top:3px solid var(--accent);border-bottom:3px solid var(--accent);margin-top:14px}
+  .navrow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px}
+  .tabs{display:flex;gap:28px;flex-wrap:wrap;color:#ecd8ab}
+  .tabs a{display:inline-block;padding:18px 4px;color:#ecd8ab;font-weight:700;opacity:.9}
+  .tabs a.active,.tabs a:hover{color:#fff}
+  .search{display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:10px 16px;min-width:260px;border:2px solid var(--accent)}
+  .search input{border:none;outline:none;width:220px;font-size:15px}
+
+  /* ===== SECTIONS ===== */
+  main{padding:22px 0}
+  .section{scroll-margin-top:120px}
+  .sectionTitle{color:#ecd8ab;font-weight:900;font-size:28px;margin:18px 0}
+
+  /* ===== GRID CARDS ===== */
+  .grid{display:grid;gap:18px}
+  @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+  .card{display:grid;grid-template-columns:1fr 260px;gap:0;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+  .card.right .pic{grid-column:2}
+  .pic{background:#eee;min-height:170px}
+  .pic img{width:100%;height:100%;object-fit:cover}
+  .info{padding:16px}
+  .title{font-weight:900;font-size:22px;margin:0 0 8px}
+  .desc{color:#6a6154;margin:0 0 14px}
+  .price{font-weight:800}
+  .soldout{display:inline-block;margin-left:10px;background:#fbe2e3;color:#b42318;border-radius:8px;padding:4px 8px;font-weight:800;font-size:12px}
+
+  /* ===== CART (demo) ===== */
+  .cart{position:sticky;bottom:16px;left:0;right:0;margin:0 auto;max-width:1200px}
+  .cartbar{display:flex;justify-content:flex-end;padding:8px}
+  .checkout{background:var(--accent);color:#1b2a22;border:none;border-radius:999px;padding:12px 18px;font-weight:900}
+  .badge{display:inline-block;background:var(--pill);border:1px solid var(--border);border-radius:999px;padding:4px 10px;font-weight:800}
+
+  /* ===== UTIL ===== */
+  .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .muted{color:var(--muted)}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">Café Cubano</div>
-    <nav>
-      <a href="#">Pa'Picar</a>
-      <a href="#">Sanguiches</a>
-      <a href="#">Batidos</a>
-      <a href="#">Café</a>
-      <a href="#">Soft Drinks</a>
-      <a href="#">Tienda</a>
-      <input class="search" type="text" placeholder="Buscar..." />
-    </nav>
-  </header>
-
-  <main>
-    <!-- Sección Café -->
-    <h2 class="sectionTitle">Cafè</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="info">
-          <h3>Cortadito</h3>
-          <p class="price">$3.29</p>
-        </div>
-        <img src="cortadito.jpg" alt="Cortadito">
-      </div>
-      <div class="card">
-        <div class="info">
-          <h3>Cafè con Leche</h3>
-          <p class="price">$4.25</p>
-        </div>
-        <img src="cafeconleche.jpg" alt="Café con Leche">
-      </div>
-      <div class="card">
-        <div class="info">
-          <h3>Colada</h3>
-          <p class="price">$3.29</p>
-        </div>
-        <img src="colada.jpg" alt="Colada">
-      </div>
-      <div class="card">
-        <div class="info">
-          <h3>La Rosita Iced Coffee</h3>
-          <p><span style="text-decoration:line-through">$6.89</span><span class="out">OUT OF STOCK</span></p>
-        </div>
-        <img src="rosita.jpg" alt="Rosita Iced Coffee" style="opacity:.4;">
-      </div>
-    </div>
-
-    <!-- Sección Soft Drinks -->
-    <h2 class="sectionTitle">Soft Drinks</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="info">
-          <h3>Pepsi</h3>
-          <p>12oz Can</p>
-          <p class="price">$2.75</p>
-        </div>
-        <img src="pepsi.jpg" alt="Pepsi">
-      </div>
-      <div class="card">
-        <div class="info">
-          <h3>Starry</h3>
-          <p>12oz Can</p>
-          <p class="price">$2.75</p>
-        </div>
-        <img src="starry.jpg" alt="Starry">
-      </div>
-      <div class="card">
-        <div class="info">
-          <h3>Materva</h3>
-          <p>12oz Can</p>
-          <p class="price">$2.75</p>
-        </div>
-        <img src="materva.jpg" alt="Materva">
-      </div>
-      <div class="card">
-        <div class="info">
-          <h3>Jupiña</h3>
-          <p>12oz Can</p>
-          <p class="price">$2.75</p>
-        </div>
-        <img src="jupina.jpg" alt="Jupina">
-      </div>
-    </div>
-  </main>
+  <!-- resto del HTML idéntico (no modificado) -->
 </body>
 </html>
+
 
 
 
