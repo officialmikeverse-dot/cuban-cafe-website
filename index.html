@@ -1,12 +1,204 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuban Café</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harmony Hub Cuban Café • St. Cloud, FL 34773</title>
+  <meta name="description" content="Authentic Cuban sandwiches, batidos and coffee in Harmony / St. Cloud, FL. Family-owned café with value combos and community vibes."/>
+  <meta property="og:title" content="Harmony Hub Cuban Café">
+  <meta property="og:description" content="Cuban sandwiches, batidos & coffee — in Harmony / St. Cloud, FL.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#b45309">
+
+  <!-- Simple styles (no frameworks) -->
+  <style>
+    :root{--amber:#b45309;--ink:#111827;--muted:#6b7280;--bg:#fffaf0;--b:#e5e7eb}
+    *{box-sizing:border-box} html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:14px 20px}
+    .btn{display:inline-flex;gap:8px;align-items:center;background:var(--amber);color:#fff;border:none;border-radius:999px;padding:10px 16px;font-weight:700;text-decoration:none}
+    .btn.outline{background:#111827}
+    .muted{color:var(--muted);font-size:14px}
+    header{position:sticky;top:0;z-index:10;background:#ffffffe6;backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #f3e8d2}
+    nav a{color:var(--ink);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--amber)}
+    .hero{padding:64px 20px;background:linear-gradient(180deg,#fff7ed,#fff)}
+    .title{font-size:38px;font-weight:900;line-height:1.1;margin:0 0 8px}
+    .grid{display:grid;gap:20px} @media(min-width:900px){.grid-2{grid-template-columns:1.2fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
+    .card{border:1px solid var(--b);border-radius:16px;background:#fff;padding:18px}
+    .img{width:100%;aspect-ratio:4/3;border-radius:14px;object-fit:cover}
+    .map{width:100%;aspect-ratio:16/9;border:0;border-radius:14px}
+    .eyebrow{color:var(--amber);text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.14em}
+    .h2{font-size:28px;font-weight:900;margin:0 0 6px}
+    .menu li{display:flex;justify-content:space-between;gap:12px;margin:10px 0}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#fff7ed;color:var(--amber);font-weight:800;font-size:12px;border:1px solid #f3e8d2}
+    .promo{background:var(--amber);color:#fff;text-align:center}
+    .footer{border-top:1px solid var(--b);background:#fff}
+  </style>
 </head>
 <body>
-    <h1>Bienvenido a Cuban Café</h1>
-    <p>Este es el inicio de nuestra página web 🚀</p>
+
+  <!-- NAV -->
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+      <div style="display:flex;align-items:center;gap:10px;font-weight:900">☕ Harmony Hub Cuban Café</div>
+      <nav style="display:none;gap:16px" id="nav">
+        <a href="#menu">Menu</a><a href="#combos">Combos</a><a href="#visit">Visit</a><a href="#order">Order</a>
+      </nav>
+      <a class="btn" href="#order">Order Ahead →</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container grid grid-2">
+      <div>
+        <h1 class="title">Authentic <span style="color:var(--amber)">Cuban</span> sandwiches, batidos & coffee — in Harmony.</h1>
+        <p class="muted" style="max-width:62ch">Family-run café bringing Cuban classics to Harmony & St. Cloud. Grab a Cubano, sip a mamey batido, and stay for the vibe.</p>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#menu">Explore Menu</a>
+          <a class="btn outline" href="#visit">Plan Your Visit</a>
+        </div>
+        <ul class="muted" style="margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:520px">
+          <li>✓ Community-first</li><li>✓ Locally roasted coffee</li>
+          <li>✓ Quick counter service</li><li>✓ Events & live music</li>
+        </ul>
+      </div>
+      <div class="card">
+        <img class="img" src="https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?q=80&w=1200&auto=format&fit=crop" alt="Cuban café counter with espresso"/>
+        <p class="muted">“Best Cubano in Central Florida.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO BAR -->
+  <section class="promo">
+    <div class="container" style="padding:8px 0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+      <strong>Grand Opening:</strong> $1 OFF Batidos • 3–6 PM • Harmony Town Center
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" style="padding:48px 20px">
+    <div class="container">
+      <p class="eyebrow">Menu</p>
+      <h2 class="h2">Cuban Staples, Fresh Everyday</h2>
+      <p class="muted">Sandwiches, batidos, coffee & sweet treats.</p>
+
+      <div class="grid grid-3" style="margin-top:18px">
+        <!-- Sandwiches -->
+        <div class="card">
+          <h3 style="margin:0 0 8px">Sandwiches</h3>
+          <ul class="menu">
+            <li><span><strong>Cuban Classic</strong> — roast pork, ham, Swiss</span><strong>$10.50</strong></li>
+            <li><span><strong>Pan con Lechón</strong> — mojo pork, onions</span><strong>$11.25</strong></li>
+            <li><span><strong>Croqueta Preparada</strong> — ham + croquetas</span><strong>$9.75</strong></li>
+            <li><span><strong>Pan con Bistec</strong> — steak, fries</span><strong>$11.50</strong></li>
+          </ul>
+        </div>
+
+        <!-- Drinks -->
+        <div class="card">
+          <h3 style="margin:0 0 8px">Drinks & Batidos</h3>
+          <ul class="menu">
+            <li><span>Batidos (Mamey/Mango/Guava/Strawberry/Papaya)</span><strong>$6.50</strong></li>
+            <li><span>Café Cubano (Espresso)</span><strong>$2.25</strong></li>
+            <li><span>Cortadito</span><strong>$2.95</strong></li>
+            <li><span>Café con Leche (12 oz)</span><strong>$3.75</strong></li>
+            <li><span>Latin Sodas (Ironbeer / Materva / Jupina)</span><strong>$2.50</strong></li>
+          </ul>
+        </div>
+
+        <!-- Desserts -->
+        <div class="card">
+          <h3 style="margin:0 0 8px">Desserts</h3>
+          <ul class="menu">
+            <li><span>Pastelitos (Guava / Cheese / Beef)</span><strong>$2.50</strong></li>
+            <li><span>Tres Leches (individual)</span><strong>$4.25</strong></li>
+            <li><span>Flan Casero</span><strong>$4.75</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMBOS -->
+  <section id="combos" style="padding:32px 20px;background:#fff7ed">
+    <div class="container">
+      <p class="eyebrow">Value Combos</p>
+      <h2 class="h2">Bundles that Boost Your Day</h2>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3 style="margin:0 0 6px">Combo Cubano <span class="badge">Best Seller</span></h3>
+          <p class="muted">Cuban Sandwich + Café con Leche</p>
+          <p><strong>$14.50</strong> <span class="muted">• Value $16.25</span></p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Combo Batido</h3>
+          <p class="muted">Pan con Lechón + Batido (Mamey/Mango)</p>
+          <p><strong>$16.50</strong> <span class="muted">• Value $17.75</span></p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Combo Familiar</h3>
+          <p class="muted">2 Sandwiches (Cubano + Bistec) + 2 Batidos + 2 Pastelitos</p>
+          <p><strong>$38.00</strong> <span class="muted">• Value $42.50</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" style="padding:48px 20px;background:#fafafa">
+    <div class="container grid grid-3">
+      <div class="card" style="grid-column:span 2;">
+        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Harmony%20Town%20Center,%20St%20Cloud,%20FL%2034773&output=embed"
+          title="Harmony Town Center map">
+        </iframe>
+        <p class="muted" style="margin-top:8px">*Map placeholder. We can replace with your exact address later.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 6px">Visit</h3>
+        Harmony Town Center<br/>St. Cloud, FL 34773
+        <h3 style="margin:14px 0 6px">Hours</h3>
+        <ul class="muted" style="padding-left:16px">
+          <li>Mon–Thu: 7:00 AM – 7:00 PM</li>
+          <li>Fri–Sat: 7:00 AM – 8:00 PM</li>
+          <li>Sun: 8:00 AM – 3:00 PM</li>
+        </ul>
+        <h3 style="margin:14px 0 6px">Contact</h3>
+        <p class="muted">(407) 555-3477 • hello@harmonyhubcafe.com</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER / SUBSCRIBE -->
+  <section id="order" style="padding:48px 20px">
+    <div class="container card">
+      <h3 style="margin:0 0 6px">Skip the Line – Get Perks</h3>
+      <p class="muted">Join our list for opening specials & a free café cubano with your first order.</p>
+      <form onsubmit="event.preventDefault(); document.getElementById('msg').innerText='Thank you! We will be in touch soon.'">
+        <input required type="email" placeholder="Your email address"
+               style="padding:12px 14px;border:1px solid #d1d5db;border-radius:12px;width:min(420px,100%);margin-right:8px">
+        <button class="btn" type="submit">Get Offer →</button>
+        <div id="msg" class="muted" style="margin-top:8px"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container" style="padding:26px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <strong>Harmony Hub Cuban Café</strong>
+      <span class="muted">© <script>document.write(new Date().getFullYear())</script> All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- small nav show on wide screens -->
+  <script>
+    if (window.matchMedia('(min-width: 900px)').matches) {
+      document.getElementById('nav').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
+
